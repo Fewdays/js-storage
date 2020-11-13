@@ -1,0 +1,89 @@
+﻿ <div class="header-all"> 
+   <div class="top clearfix"> 
+    <ul class="logo">
+     <a href="/"><img src="/images/logo.png" height="100%" width="100%" title="{maccms:name}" /></a>
+    </ul> 
+    <ul class="top-nav"> 
+     <li><a class="on" href="/">首页</a></li> 
+      {maccms:menu type=1,2,4,3 order=asc num=6} 
+     <li class="" _t_nav="topnav-[menu:num]"><a href="[menu:link]" target="_blank" {if-a:{maccms:curvodtypeid}="[menu:id]}" class="on" {endif-a}="">[menu:name]<i class="sjbgs"></i><i class="sjbgx"></i></a></li> {/maccms:menu} 
+     <li class="" _t_nav="topnav-news"><a href="{maccms:link_index_art}" target="_blank">资讯<i class="sjbgs"> </i><i class="sjbgx"></i></a></li> 
+    </ul> 
+    <ul class="search so"> 
+     <form action="{maccms:link_search_vod}" method="post"> 
+      <input type="text" id="wd" name="wd" class="input" onblur="if(this.value==''){ this.value='请输入影片或演员名';this.style.color='#cfcdcd';}" onfocus="if(this.value=='请输入影片或演员名'){this.value='';this.style.color='';}" value="请输入影片或演员名" /> 
+      <div class="so-key"> 
+        {maccms:vod num=6 order=desc by=level type=all level=5} 
+       <a href="[vod:link]" target="_blank">[vod:name len=10]</a> {/maccms:vod} 
+      </div> 
+      <input type="submit" name="submit" class="imgbt" value="" /> 
+     </form> 
+    </ul> 
+    <ul class="sj-search"> 
+     <li class="sbtn2"><i class="sjbg-search"></i></li> 
+    </ul> 
+    <ul class="sj-nav"> 
+     <li class="sbtn1"><i class="sjbg-nav"></i></li> 
+    </ul> 
+    <ul class="sj-navhome"> 
+     <li><a href="/"><i class="sjbg-home"></i></a></li> 
+    </ul>  
+   </div> 
+   <div class="nav-down clearfix"> 
+    <div id="topnav-1" class="nav-down-1" style="display:none;" _t_nav="topnav-1"> 
+     <div class="nav-down-2 clearfix">
+      <ul>
+        {maccms:menu order=asc parent=1 } 
+       <li><a href="[menu:link]" target="_blank">[menu:name]</a></li> {/maccms:menu} 
+      </ul>
+     </div>
+    </div> 
+    <div id="topnav-2" class="nav-down-1" style="display:none;" _t_nav="topnav-2"> 
+     <div class="nav-down-2 clearfix"> 
+      <ul>
+        {maccms:menu order=asc parent=2 } 
+       <li><a href="[menu:link]" target="_blank">[menu:name]</a></li> {/maccms:menu} 
+      </ul>
+     </div>
+    </div>
+    <div id="topnav-3" class="nav-down-1" style="display:none;" _t_nav="topnav-3"> 
+     <div class="nav-down-2 clearfix">
+      <ul>
+        {maccms:menu order=asc parent=4} 
+       <li><a href="[menu:link]" target="_blank">[menu:name]</a></li> {/maccms:menu} 
+      </ul>
+     </div>
+    </div> 
+    <div id="topnav-news" class="nav-down-1" style="display:none;" _t_nav="topnav-news"> 
+     <div class="nav-down-2 clearfix"> 
+      <ul>
+        {maccms:matrix type=child table=art type=0} 
+       <li> <a href="[matrix:link]" target="_blank">[matrix:name] </a> </li> {/maccms:matrix} 
+      </ul> 
+     </div> 
+    </div> 
+     
+    <div id="sj-nav-1" class="nav-down-1 sy1 sj-noover" style="display:none;" _s_nav="sj-nav-1"> 
+     <div class="nav-down-2 sj-nav-down-2 clearfix"> 
+      <ul> 
+       <li><a href="{maccms:path}" {if-a:{maccms:siteaid}="10}" class="on" {endif-a}="">首页</a></li> 
+        {maccms:menu type=parent order=asc } 
+       <li><a href="[menu:link]" target="_blank" {if-a:{maccms:curvodtypeid}="[menu:id]}" class="on" {endif-a}="">[menu:name]</a></li> 
+        {/maccms:menu} 
+        {maccms:menu type=child order=asc } 
+       <li><a href="[menu:link]" target="_blank" {if-a:{maccms:curvodtypeid}="[menu:id]}" class="on" {endif-a}="">[menu:name]</a></li> 
+        {/maccms:menu} 
+       <li><a href="{maccms:link_index_art}" target="_blank">美女图</a></li> 
+      </ul> 
+     </div> 
+    </div> 
+    <div id="sj-nav-search" class="nav-down-1 sy2 sj-noover" style="display:none;" _t_nav1="sj-nav-search"> 
+     <div class="nav-down-2 sj-nav-down-search clearfix"> 
+      <form action="{maccms:link_search_vod}" method="post"> 
+       <input type="text" id="wd" name="wd" class="input" onblur="if(this.value==''){ this.value='请输入影片或演员名';this.style.color='#cfcdcd';}" onfocus="if(this.value=='请输入影片或演员名'){this.value='';this.style.color='';}" value="请输入影片或演员名" /> 
+       <input type="submit" name="submit" class="imgbt" value="搜 索" /> 
+      </form> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
