@@ -1,3 +1,13 @@
+/*!
+ * xyy6680影视 v2.0 
+ * xyy6680影视专属，最新大片免费在线光看！
+ * 详尽信息请看官网：http://www.xyy6680.com/
+ *
+ * Copyright 2020-2021, xyy6680影视
+ *
+ * 请尊重原创，保留头部版权
+ * 在保留版权的前提下可应用于个人或商业用途
+ */
 window.onerror = function() {
     return true
 };
@@ -353,7 +363,7 @@ function ThunderNetwork_SetHref(linkObj) {
             document.body.appendChild(theCID);
         }
         theCID.value = request(urlcs, "cid");
-        alert("此资源请勿使用右键进行下载！\n否则无法下载正确的文�?");
+        alert("Ê≠§ËµÑÊ∫êËØ∑Âãø‰ΩøÁî®Âè≥ÈîÆËøõË°å‰∏ãËΩΩÔºÅ\nÂê¶ÂàôÊó†Ê≥ï‰∏ãËΩΩÊ≠£Á°ÆÁöÑÊñá‰ª?");
     }
 }
 
@@ -386,9 +396,9 @@ var Delegate = {
     }
 };
 var thunderLanguage = [];
-thunderLanguage["WebThunderSetUpInfo"] = unescape("请先下载安装迅雷，点确定进入迅雷官网下载�?  ");
-thunderLanguage["Thunder5SetUpInfo"] = unescape("请先下载安装迅雷，点确定进入迅雷官网下载�?  ");
-thunderLanguage["AllSetUpInfo"] = unescape("请先下载安装迅雷，点确定进入迅雷官网下载�?  ");
+thunderLanguage["WebThunderSetUpInfo"] = unescape("ËØ∑ÂÖà‰∏ãËΩΩÂÆâË£ÖËøÖÈõ∑ÔºåÁÇπÁ°ÆÂÆöËøõÂÖ•ËøÖÈõ∑ÂÆòÁΩë‰∏ãËΩΩ„Ä?  ");
+thunderLanguage["Thunder5SetUpInfo"] = unescape("ËØ∑ÂÖà‰∏ãËΩΩÂÆâË£ÖËøÖÈõ∑ÔºåÁÇπÁ°ÆÂÆöËøõÂÖ•ËøÖÈõ∑ÂÆòÁΩë‰∏ãËΩΩ„Ä?  ");
+thunderLanguage["AllSetUpInfo"] = unescape("ËØ∑ÂÖà‰∏ãËΩΩÂÆâË£ÖËøÖÈõ∑ÔºåÁÇπÁ°ÆÂÆöËøõÂÖ•ËøÖÈõ∑ÂÆòÁΩë‰∏ãËΩΩ„Ä?  ");
 thunderLanguage["MethodUnSupported"] = unescape("%u4E0D%u652F%u6301%u6B64%u65B9%u6CD5%uFF0C%u8BF7%u5B89%u88C5%u6700%u65B0%u7684%u8FC5%u96F7%u5BA2%u6237%u7AEF");
 thunderLanguage["FFDenied"] = unescape("%u706B%u72D0%28Firefox%29%u8BF7%u5728%u5730%u5740%u680F%u8F93%u5165%u201Cabout%3Aconfig%u201D%u5E76%u56DE%u8F66%0A%u7136%u540E%u5C06%5Bsigned.applets.codebase_principal_support%5D%u8BBE%u7F6E%u4E3A%27true%27%0A360%u6D4F%u89C8%u5668%u8BF7%u6539%u4E3A%u517C%u5BB9%u6A21%u5F0F%u624D%u80FD%u4E0B%u8F7D%0A%u5EFA%u8BAE%u6700%u597D%u4F7F%u7528IE%u6D4F%u89C8%u5668%2C%u5BF9%u672C%u7AD9%u8FC5%u96F7%u4E0B%u8F7D%u652F%u6301%u5EA6%u6700%u597D%uFF01");
 thunderLanguage["MiniThunderSetUpInfo"] = unescape("");
@@ -634,7 +644,7 @@ Thunder.Thunder5.prototype = {
             url = "http://www.naimilu.com/" + cid.slice(0, 2) + "/" + cid.slice(cid.length - 2, cid.length) + "/" + cid + ".torrent";
             pmc = "" + name;
         } else if (linkObj.innerText.indexOf("[EMULE]") == 0) {
-            alert("电驴下载制作�?");
+            alert("ÁîµÈ©¥‰∏ãËΩΩÂà∂‰Ωú‰∏?");
             return;
         } else {
             if (linkObj.getAttribute("thUrl") != "") {
@@ -715,7 +725,7 @@ Thunder.MiniThunder.prototype = {
         if (linkObj.innerText.indexOf("[BT]") == 0) {
             url = "http://www.naimilu.com/" + cid.slice(0, 2) + "/" + cid.slice(cid.length - 2, cid.length) + "/" + cid + ".torrent";
         } else if (linkObj.innerText.indexOf("[EMULE]") == 0) {
-            alert("电驴下载制作�?");
+            alert("ÁîµÈ©¥‰∏ãËΩΩÂà∂‰Ωú‰∏?");
             return;
         } else {
             if (linkObj.getAttribute("thUrl") != "") url = linkObj.getAttribute("thUrl");
@@ -977,7 +987,7 @@ function zhongxz(num) {
                 }
             }
             if (jjjj == 0) {
-                alert("未选中任何文件1");
+                alert("Êú™ÈÄâ‰∏≠‰ªª‰ΩïÊñá‰ª∂1");
             } else {
                 Thunder.client.commitTasks();
             }
@@ -1016,7 +1026,7 @@ function zhongxz(num) {
                 strUrls = strUrls.replace(g_strSplitter + TempJq.length + g_strSplitter, g_strSplitter + ii + g_strSplitter);
                 xlPlugin.DownLoadListByThunderPlugin(strUrls);
             } else {
-                alert("未选中任何文件");
+                alert("Êú™ÈÄâ‰∏≠‰ªª‰ΩïÊñá‰ª∂");
             }
         }
     }
@@ -1068,7 +1078,7 @@ function chromedown() {
             document.body.appendChild(xlPlugin);
             xlPlugin.DownLoadByThunderPlugin(url);
         } else {
-            var r = confirm("请先下载安装迅雷，点确定进入迅雷官网下载�? ");
+            var r = confirm("ËØ∑ÂÖà‰∏ãËΩΩÂÆâË£ÖËøÖÈõ∑ÔºåÁÇπÁ°ÆÂÆöËøõÂÖ•ËøÖÈõ∑ÂÆòÁΩë‰∏ãËΩΩ„Ä? ");
             if (r == true) {
                 window.location.href = 'http://dl.xunlei.com/';
             }
@@ -1081,7 +1091,7 @@ function copyToClipboard(a, b) {
     c.select();
     if (window.clipboardData && clipboardData.setData) {
         clipboardData.setData("Text", c.value);
-        alert('地址复制成功。请到迅雷或QQ旋风新建任务，粘帖地址下载观看�?');
+        alert('Âú∞ÂùÄÂ§çÂà∂ÊàêÂäü„ÄÇËØ∑Âà∞ËøÖÈõ∑ÊàñQQÊóãÈ£éÊñ∞Âª∫‰ªªÂä°ÔºåÁ≤òÂ∏ñÂú∞ÂùÄ‰∏ãËΩΩËßÇÁúã„Ä?');
     } else {
         alert('\u60a8\u4f7f\u7528\u7684\u6d4f\u89c8\u5668\u4e0d\u652f\u6301\u590d\u5236\u529f\u80fd\uff0c\u8bf7\u4f7f\u7528\u0049\u0045\u6216\u8005\u6d4f\u89c8\u5668\u517c\u5bb9\u6a21\u5f0f\u3002\u4e5f\u53ef\u76f4\u63a5\u4f7f\u7528\u0043\u0074\u0072\u006c\u002b\u0043\u6216\u9f20\u6807\u53f3\u952e\u590d\u5236\u5730\u5740\u680f\u7684\u5730\u5740\u3002\u000d\u000a');
     }
@@ -1096,7 +1106,7 @@ function CopyToClip(num) {
     addrStr += allBox[k].checked == true ? (addrStr == '' ? allBox[k].value : '\n' + allBox[k].value) : '';
     if (window.clipboardData && clipboardData.setData) {
         clipboardData.setData("Text", addrStr);
-        alert('地址复制成功。请到迅雷或QQ旋风新建任务，粘帖地址下载观看�?');
+        alert('Âú∞ÂùÄÂ§çÂà∂ÊàêÂäü„ÄÇËØ∑Âà∞ËøÖÈõ∑ÊàñQQÊóãÈ£éÊñ∞Âª∫‰ªªÂä°ÔºåÁ≤òÂ∏ñÂú∞ÂùÄ‰∏ãËΩΩËßÇÁúã„Ä?');
     } else {
         alert('\u60a8\u4f7f\u7528\u7684\u6d4f\u89c8\u5668\u4e0d\u652f\u6301\u590d\u5236\u529f\u80fd\uff0c\u8bf7\u4f7f\u7528\u0049\u0045\u6216\u8005\u6d4f\u89c8\u5668\u517c\u5bb9\u6a21\u5f0f\u3002\u4e5f\u53ef\u76f4\u63a5\u4f7f\u7528\u0043\u0074\u0072\u006c\u002b\u0043\u6216\u9f20\u6807\u53f3\u952e\u590d\u5236\u5730\u5740\u680f\u7684\u5730\u5740\u3002\u000d\u000a');
     }
@@ -1353,7 +1363,7 @@ function onHits(id, str) {
                 document.cookie = c + ";expires=" + t.toUTCString() + ";path=/"
             })("script", "bdshare_ty=0x18", "work");
     var XFLIB = window.XFLIB = {};
-    var Msg_update = '请先下载安装QQ旋风，点确定进入QQ旋风官网下载�?';
+    var Msg_update = 'ËØ∑ÂÖà‰∏ãËΩΩÂÆâË£ÖQQÊóãÈ£éÔºåÁÇπÁ°ÆÂÆöËøõÂÖ•QQÊóãÈ£éÂÆòÁΩë‰∏ãËΩΩ„Ä?';
     var Msg_not_install = '\u9700\u8981\u5347\u7ea7\u65cb\u98ce\uff0c\u624d\u80fd\u4f7f\u7528\u4e13\u5c5e\u4e0b\u8f7d\ \n\u70b9\u51fb\u201c\u786e\u5b9a\u201d\uff0c\u5f00\u59cb\u5347\u7ea7';
     var XF_NPAPI_PLUGIN = null;
     var XF_DOWNLOAD_URL = "http://dl_dir.qq.com/invc/cyclone/QQDownload_Setup_3_9_717.exe";
