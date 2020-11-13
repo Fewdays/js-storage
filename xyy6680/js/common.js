@@ -1,4 +1,4 @@
-﻿function AJAX(G) {
+function AJAX(G) {
 	var K = [],
 	$ = this,
 	L = AJAX.__pool__ || (AJAX.__pool__ = []); (function(E) {

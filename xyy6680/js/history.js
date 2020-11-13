@@ -1,4 +1,4 @@
-﻿var $MH={
+var $MH={
 	limit: 10,
 	width:960,
 	height: 170,

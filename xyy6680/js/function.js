@@ -1,4 +1,4 @@
-﻿var ajax = new AJAX();ajax.setcharset("utf-8");
+var ajax = new AJAX();ajax.setcharset("utf-8");
 function reportErr(id){openWin("/"+sitePath+"interface/error.html?id="+id,400,220,350,250,0)}
 
 function AddFav(vid,uid)
