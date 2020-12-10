@@ -170,7 +170,7 @@ em,i{font-style: normal;}
 .itemtwo .itemtopname a{display:block}
 .itemtwo .itemtopname .listtype{float:left;display:inline;margin-right:5px;padding:0 7px;font-size:14px;color:#666;background:#eee;display:inline-block}
 .itemtwo .itemtopname .listtype.top{color:#fff;background:#ff6615}
-.itemtwo .itemtopnametxt{width:130px;float:left;display:inline;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+{width:120px;float:left;display:inline;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
 .itemtwo .itemtopname i{float:right;display:inline;padding-right:10px;color:#999;font-family:arial}
 .catetitle{margin-bottom:20px;color:#333}
 .catetitle h3{font-size:24px}
