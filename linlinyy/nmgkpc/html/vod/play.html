@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>在线播放{$obj.vod_name} {$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']} - 高清资源 - {$maccms.site_name}</title>
+<meta name="keywords" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}免费在线观看,{$obj.vod_name}剧情介绍" />
+<meta name="description" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}免费在线观看,{$obj.vod_name}剧情介绍" />
+{include file="public/include"}
+</head>
+<body>
+ <div class="wrapper">  
+{include file="public/head"}
+<div class="main">
+	<div class="wrap">
+		<div class="playtop">
+			<div class="playtitle">
+				<h2><span class="catetag"><a href="{:mac_url_type($obj,[],'type')}">{$obj.type.type_name}</a></span>{$obj.vod_name}</h2>
+			</div>
+		</div>
+		<div class="playbox">
+			<span class="ff-hits" data-sid="vod" data-id="7127" data-type="insert"></span>
+			<div class="player embed-responsive embed-responsive-4by3" id="cms_player">
+			    {$player_data}{$player_js}
+			</div>
+		</div>
+		<div class="sidebox">
+			<div class="divTags" id="divTags">
+			    <div class="qqgroup">
+<p><span>小贴示：</span>请点击播放按钮并稍等，视频黑屏载入需要时间，如遇长时间无法播放请刷新网页或切换播放线路。不能播放请点击 &gt; <a rel="nofollow" href="javascript:;" onclick="MAC.Gbook.Report('编号【{$obj.vod_id}】名称【{$obj.vod_name}】不能观看请检查修复，页面地址' + location.href,'{$obj.vod_id}')">报错</a> 向我们反馈 / 暂未收录的资源，请点击 &gt; <a href="{:mac_url('gbook/index')}" >留言求片</a> 向我们反馈，谢谢！</p></div>
+				<div class="sidetitle">
+					<ul  class="title">
+					  	{maccms:foreach name="obj.vod_play_list" id="vo" key="key"}        
+						<li ><h3  {if condition="$key eq 1"}class="on"{/if} >{$vo.player_info.show}</h3></li>
+					{/maccms:foreach}   
+						</ul>
+				</div>
+				      <div id="content">
+					{maccms:foreach name="obj.vod_play_list" id="vo"  }
+				<div id="this_side_{$key}" class=" mod" {if condition="$key eq 1"}style="display:block"{else/}style="display:none"{/if}>
+					<div class="sidecon">
+						<ul >
+						      {maccms:foreach name="vo.urls" id="vo2" } 
+							<li class="{if condition="$param.sid eq $vo.sid && $param.nid eq $vo2.nid"}cur{/if}"><a   href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}">{$vo2.name}</a></li>
+							      {/maccms:foreach} 
+							</ul>
+					</div>
+				</div>
+			  {/maccms:foreach}
+			</div>
+			</div>
+		</div>
+
+<script type="text/javascript">
+  $(function(){
+        $(".title li h3").click(function(){
+             $(".title li h3").removeClass("on");
+            $(this).addClass("on");
+            $("#content .mod").eq($(".title li h3").index(this)).show().siblings("#content .mod").hide();
+        });
+    });
+</script>
+<style>
+    h3.on{
+            border-bottom: 2px solid #ff6615;
+    color: #ff6615;
+    }
+</style>
+
+		<div class="singlebox">
+			<div class="singletitle">
+				<h3>相关推荐</h3>
+			</div>
+			<div class="singlecon">
+				<ul class="related">
+				    {maccms:vod num="6" type="current" order="desc" by="time"} 
+					<li>
+					<div class="relatedimg">
+						<a href="{:mac_url_vod_detail($vo)}" target="_blank"><img src="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}">
+						<div class="zoomimg">
+						</div>
+						</a>
+					</div>
+					<div class="relatedinfo">
+						<h3 class="itemname"><a href="{:mac_url_vod_detail($vo)}" target="_blank">{$vo.vod_name}</a></h3>
+						<p class="iteminfo"></p>
+					</div>
+					</li>
+					{/maccms:vod}
+				</ul>
+
+			</div>
+
+		</div>
+
+	</div>
+{include file="public/foot"}
+</div>
+</div>
+</body>
+</html>

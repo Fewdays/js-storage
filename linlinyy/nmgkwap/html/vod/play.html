@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>在线播放{$obj.vod_name} {$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']} - 高清资源 - {$maccms.site_name}</title>
+<meta name="keywords" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}免费在线观看,{$obj.vod_name}剧情介绍" />
+<meta name="description" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}免费在线观看,{$obj.vod_name}剧情介绍" />
+{include file="public/include2"}
+<link rel="stylesheet" href="{$maccms.path_tpl}css/pl.css">
+</head>
+<body>
+ {include file="vod/head"}
+    <div class="page-container">
+        <main>
+            <span id="8" class="ysTestPos"></span>
+            <div class="container-content">
+                <div class="vod-bf-box">
+                    <div class="vod vod-player">
+                        {$player_data}{$player_js}
+                    </div>
+                </div>
+                <div class="vod-msg-box">
+                    <div class="vod-name">
+                        <h1 class="name"> 
+							<span id="play-title">{if condition="$obj.vod_remarks neq ''"}{$obj.vod_remarks}{elseif condition="$obj.vod_serial gt 0"}第{$obj.vod_serial}集{else /}已完结{/if}</span>{$obj.vod_name}	
+							</h1>
+                    </div>
+                    <div class="info-group">
+                        <div class="group">
+                            <i class="icon info-class-icon"></i>{$obj.vod_class|mac_url_create='class'}</div>
+                        <div class="group">
+                            <i class="icon info-bf-icon"></i>{$obj.vod_hits}</div>
+                        <div class="group">
+                            <i class="icon info-day-icon"></i>{$obj.vod_time|date='Y-m-d',###}</div>
+                    </div>
+                </div>
+                <div class="wraps">
+                    <div class="video_nei_box">
+                        <ul>
+                            <li onclick="onSelect(this,'this_drame')" class="tab_2"><h2>播放列表</h2></li>
+                            <li onclick="onSelect(this,'this_drame')" class="tab_1"><h2>内容介绍</h2></li>
+                        </ul>
+                    </div>
+                  <div id="this_drame_0">
+                    <div class="ofauto">
+                        <div class="new_sidetitle" name="sidetitle">
+                            	{maccms:foreach name="obj.vod_play_list" id="vo" key="key"}        
+                            <div class="new_side  {if condition="$key eq 1"}cur{/if} " data-p="2" data-value="{$key}"><h2>{$vo.player_info.show}</h2></div>
+                            {/maccms:foreach}
+                        </div>
+                </div>
+			{maccms:foreach name="obj.vod_play_list" id="vo"  }
+                <div class="xuanji-box v_l_p2 v_l_{$key}"  {if condition="$key eq 1"}style="display:block"{else/}style="display:none"{/if}>
+                    <div class="xj-qj" data-value="{$key}">
+                        <span class="xj">选集</span>
+                        <span class="qj qj1">{if condition="$obj.vod_remarks neq ''"}{$obj.vod_remarks}{elseif condition="$obj.vod_serial gt 0"}第{$obj.vod_serial}集{else /}已完结{/if}<em>&gt;</em></span>
+                    </div>
+                    <div class="ji-num-box">
+                        <div class="ji-list-out">
+                            <div class="ji-list-box">
+                                <div class="ji-list">
+                                  {maccms:foreach name="vo.urls" id="vo2" }     
+                              <a data="ji_{$key}" href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}" class="data">{$vo2.name}</a>    
+                              	{/maccms:foreach} 
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            {/maccms:foreach}
+            	{maccms:foreach name="obj.vod_play_list" id="vo"  }
+            <div class="shangxia-qiehuan qh{$key}" style="display:none">
+            <div class="dialog-header"><span>选集</span><i data-value="{$key}"></i></div>
+            <div class="box-jiji">
+             {maccms:foreach name="vo.urls" id="vo2" }     
+            <a href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}" class="data">{$vo2.name}</a>    
+              {/maccms:foreach} 
+            </div>
+        </div>
+        {/maccms:foreach}
+         </div>
+                    <div id="this_drame_1" style="display: none;">
+                    	<div class="new_jianjie">
+                            <div>简介：</div>
+                                <p>{$obj.vod_content}</p>
+                        </div>
+                    </div>
+                    <div class="module_tags">
+                        <label>标签：</label>
+                               <p>  {$obj.vod_tag|mac_url_create='tag'}</p>
+                    </div>
+                    <div class="qqgroup">
+						<p><span>小贴示：</span>请点击播放按钮并稍等，视频黑屏载入需要时间，如遇长时间无法播放请刷新网页或切换播放线路。不能播放请点击 &gt; <a rel="nofollow" href="javascript:;" onclick="MAC.Gbook.Report('编号【{$obj.vod_id}】名称【{$obj.vod_name}】不能观看请检查修复，页面地址' + location.href,'{$obj.vod_id}')">报错</a>向我们反馈，谢谢！</p>
+					</div>
+            	</div>
+                <div class="index-page-tj-box">
+                    <div class="box-title">
+                        <div class="mtitle">喜欢 [<font class="">{$obj.vod_name}</font>] 的人也喜欢</div>
+                    </div>
+                    <div class="box-content">
+                        <div class="index-tj-vod-img-list">
+                            {maccms:vod num="6" type="current" order="desc" by="time"}  
+                        	<div class="data">
+                        	   <div class="data-img" style="background:url({:mac_url_img($vo.vod_pic)}) center / cover no-repeat">
+                        	   <a href="{:mac_url_vod_detail($vo)}"></a>
+                        	   <div class="time">{$vo.vod_remarks}</div>
+                        	   </div>
+                        	   <div class="data-name"><h3><a href="{:mac_url_vod_detail($vo)}">{$vo.vod_name}</a></h3>
+                        	   </div>
+                        	   </div>
+                        	   		{/maccms:vod}
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="footer-text absolute-center">
+                    	<p >本站所有内容均来源于互联网，所有影片仅供测试和学习交流。</p>
+                   <p>Copyright © 2018-2020 <a href="{$maccms.path}">{$maccms.site_name}</a> <a href="{:mac_url('rss/index')}" target="_blank">站点地图</a></p>
+				<p>{$maccms.site_tj}</p>
+                </div>
+            </div>
+        </footer>
+        	<script type="text/javascript" src="{$maccms.path_tpl}js/play_common.js"></script> 
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>{$obj.type_name}-第{$param.page}页-{$maccms.site_name}</title>
+<meta name="keywords" content="{$obj.type_name}数据列表-第{$param.page}页-{$maccms.site_name}" />
+<meta name="description" content="{$obj.type_name}数据列表-第{$param.page}页-{$maccms.site_name}" />
+{include file="public/include1"}
+</head>
+<body>
+ {include file="vod/head"}
+ 		<div class="main">
+			<div class="wrap">
+    			<div class="cate">
+      				<div class="catecon movielist">
+        				<div class="catetitle">
+        					<h3>{$obj.type_name}</h3>
+        				</div>
+        				<ul>
+						{maccms:vod num="21" type="current" order="desc" paging="yes"  by="time" pageurl="vod/type"}		    
+                        <li class="multi">
+                    	<div class="cateimg">
+	                    <a href="{:mac_url_vod_detail($vo)}" target="_blank"><img src="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}"><div class="zoomimg"></div><i class="continu">{$vo.vod_remarks}</i></a>
+                        	</div>
+                        	<div class="itemname"><a href="{:mac_url_vod_detail($vo)}" target="_blank">{$vo.vod_name}</a></div>
+                    	<div class="iteminfo">{$vo.vod_actor|mac_default='未知'}</div>
+                        </li>
+                        {/maccms:vod}
+						</ul>
+  					</div>
+        		{include file="public/paging"}
+				</div>
+			</div>
+		</div>
+ {include file="public/foot"}
+</body>
+</html>

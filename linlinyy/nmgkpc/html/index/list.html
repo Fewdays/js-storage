@@ -1,0 +1,38 @@
+	<div class="wrap">
+	     {maccms:type ids="1,2,3,4" order="asc" by="sort" id="vo1" key="key1" flag="vod"}		
+		<div class="item itemtwo fadebox">
+			<div class="itemcon">
+				<div class="itemlist">
+					<div class="itemtitle">
+						<h3><a href="{:mac_url_type($vo1,[],'type')}" target="_blank">{$vo1.type_name}</a></h3>
+					</div>
+					<ul>
+					    {maccms:vod num="10" type="'.$vo1['type_id'].'" order="desc" by="time"}   
+						{include file="index/vodbox"}
+						 {/maccms:vod}
+					</ul>
+				</div>
+				<div class="itemtop">
+					<div class="itemtitle">
+						<h3>{$vo1.type_name}推荐</h3>
+					</div>
+					<ul class="itemtoplist">
+					     {maccms:vod num="10" type="'.$vo1['type_id'].'" order="desc" by="hits"}   
+						<dl>
+						<div class="itemtopimg">
+							<a href="{:mac_url_vod_detail($vo)}" target="_blank"><img src="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}">
+							<div class="zoomimg">
+							</div>
+							</a>
+						</div>
+						<div class="itemtopname">
+							<a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}" target="_blank"><span class="listtype">{$key}</span><span class="itemtopnametxt">{$vo.vod_name}</span><i class="icoplay">{$vo.vod_remarks}</i></a>
+						</div>
+						</dl>
+						{/maccms:vod}
+					</ul>
+				</div>
+			</div>
+		</div>
+		  {/maccms:type}
+	</div>

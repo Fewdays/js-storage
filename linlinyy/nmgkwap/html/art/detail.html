@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>{$obj.art_name} - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.art_name}最新资讯,推荐资讯" />
+    <meta name="description" content="{$obj.art_name}最新资讯,推荐资讯" />
+    {include file="public/include"}
+</head>
+	
+	<body class="news-detail">
+		<div class="wrapper">
+{include file="public/head"}
+		<div class="mains">
+			<div class="wrap">
+				<div class="nm-lie">
+					<div class="pos">
+						<span>当前位置：</span><a href="{$maccms.path}">首页</a>><a href="{:mac_url_type($obj)}">{$obj.type_name}</a>><em>{$obj.art_name}</em>
+					</div>
+					<div class="nm-lie-bo itemtwo thrs">
+						<div class="htzixun">
+							<h1>{$obj.art_name}</h1>
+							<div class="article-infos">
+								<span>来源：<font>{$obj.art_from|mac_default='网络'}</font></span>
+								<span>{$obj.art_time|date='Y-m-d H:i:s',###}</span>
+								<a href="#indexa" class="ping arc_comment">阅读(<font>{$obj.art_hits}</font>)</a>
+							</div>
+							<div class="article-detail">
+						    	{$obj.art_page_list[$param['page']]['content']}
+							</div>
+							<div class="page row-thr">
+							</div>
+							<p class="main_center_bianqin_fl-text"> 标签：
+							   {$obj.art_tag|mac_url_create='tag'}
+							</p>
+						</div>
+												<div class="itemcon pt30">
+							<div class="itemlist">
+								<div class="itemtitle htui">
+									<h3>推荐作品</h3>
+								</div>
+								<ul>
+								{maccms:vod num="10" type="all"  order="desc" by="rnd"}
+									<li>
+										<div class="itemimg">
+											<a href="{:mac_url_vod_detail($vo)}" target="_blank"><img src="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}"/>
+												<i class="continu">{$vo.vod_remarks}</i>
+												<div class="zoomimg">
+												</div>
+											</a>
+										</div>
+										<div class="itemname">
+											<a href="{:mac_url_vod_detail($vo)}" target="_blank">{$vo.vod_name}</a>
+										</div>
+										<div class="iteminfo">{$vo.vod_actor|mac_default='未知'}</div>
+									</li>
+									{/maccms:vod}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="nm-lie-fr itemtwo">
+				<div class="event_box">
+							<div class="parHd clearfix">
+								<ul>
+								{maccms:type ids="1,2,3,4" order="asc" by="sort" id="vo1" key="key1" flag="vod"}
+								<li {if condition="$key eq 1"}class="act"{/if}>{$vo1.type_name}</li>
+							    {/maccms:type}
+							</ul>
+								<a class="sPrev"></a>
+								<a class="sNext"></a>
+							</div>
+							<div class="parBd clearfix">
+							{maccms:type ids="1,2,3,4" order="asc" by="sort" id="vo1" key="key1" flag="vod"}	
+								<div class="slideBox" {if condition="$key eq 1"}style="display:block"{else/}style="display:none"{/if}>
+										<div class="itemtop">
+											<div class="itemtoplist">
+										      {maccms:vod num="20" type="'.$vo1['type_id'].'" order="desc" by="hits"}   
+						<dl>
+						<div class="itemtopimg">
+							<a href="{:mac_url_vod_detail($vo)}" target="_blank"><img src="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}">
+							<div class="zoomimg">
+							</div>
+							</a>
+						</div>
+						<div class="itemtopname">
+							<a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}" target="_blank"><span class="listtype">{$key}</span><span class="itemtopnametxt">{$vo.vod_name}</span><i class="icoplay">{$vo.vod_remarks}</i></a>
+						</div>
+						</dl>
+						{/maccms:vod}
+										</div>
+										</div>
+									</div>
+							  {/maccms:type}			
+							</div>
+						</div>
+						<div class="nm-hot">
+							<div class="hotitem">
+								<h3>热点资讯</h3>
+							</div>
+							<ul>
+							    {maccms:art num="20" order="desc" by="hits"}
+								<li>
+									<a href="{:mac_url_art_detail($vo)}" target="_blank">{$vo.art_name}</a>
+								</li>
+									 {/maccms:art}
+								</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	    <div class="clearfix ff-clearfix"></div>
+		<div class="container ff-bg">
+			{include file="public/foot"}
+</div>
+</div>
+</body>
+</html>
+
